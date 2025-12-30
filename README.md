@@ -145,7 +145,7 @@ frontend/index.html
 ## 👨‍💻 Author
 
 **Chaitanya Falari**
-Built as a learning & academic project.
+Built as a assignment project.
 
 ---
 
