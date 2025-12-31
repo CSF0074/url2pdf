@@ -27,7 +27,7 @@ if (!fs.existsSync(OUTPUT_DIR)) {
 
 app.post("/process", async (req, res) => {
   try {
-    let { url } = req.body;
+    let { url } = req.body;   // ✅ THIS WAS MISSING
 
     if (!url) {
       return res.status(400).json({ error: "URL is required" });
@@ -62,10 +62,14 @@ app.post("/process", async (req, res) => {
     });
 
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Processing failed" });
+    console.error("PROCESS ERROR:", error);
+    res.status(500).json({
+      error: "Processing failed",
+      details: error.message
+    });
   }
 });
+
 
 app.use("/output", express.static(OUTPUT_DIR));
 
